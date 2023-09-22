@@ -117,7 +117,7 @@
 
 @media (min-width: 1150px) {
 	.team {
-		padding: 2em;
+		padding: 20em;
 
 		.section-header {
 			padding: 1em;
@@ -125,9 +125,14 @@
 		}
 
 		&__player {
-			width: 40rem;
+			width: 25em;
 			padding: 2em;
+			height: 350px;
 			margin-bottom: 2em;
 		}
+	}
+
+	.schedule, .links {
+		padding: 20em;
 	}
 }
