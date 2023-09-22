@@ -2,6 +2,12 @@
 
 .team {
 	// padding: 2em;
+	.atribute {
+		display: flex;
+		justify-content: center;
+		font-size: 1.2rem;
+	}
+
 	.section-header {
 		padding: 1.2em 0 0.2em 0;
 	}

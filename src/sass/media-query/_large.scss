@@ -76,7 +76,7 @@
 		&__container {
 			width: 100%;
 			flex-direction: row;
-            justify-content: space-between;
+			justify-content: space-between;
 		}
 
 		table {
@@ -108,16 +108,33 @@
 			height: 25%;
 			font-size: 2.4rem;
 
-            &-number{
-                margin-bottom: 0.2em;
-            }
+			&-number {
+				margin-bottom: 0.2em;
+			}
 		}
 	}
 }
 
 @media (min-width: 1150px) {
 	.team {
-		padding: 10em;
+		padding: 2em;
+
+		.section-header {
+			padding: 1em;
+			font-size: 4rem;
+		}
+
+		&__player {
+			width: 40rem;
+			padding: 2em;
+			margin-bottom: 2em;
+		}
+	}
+}
+
+@media (min-width: 1400px) {
+	.team {
+		padding: 2em 15em;
 
 		.section-header {
 			padding: 1em;
@@ -132,7 +149,8 @@
 		}
 	}
 
-	.schedule, .links {
-		padding: 10em;
+	.schedule,
+	.links {
+		padding: 2em 10em;
 	}
 }
