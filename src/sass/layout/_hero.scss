@@ -1,0 +1,89 @@
+@use 'abstracts/colors' as *;
+
+.hero {
+	position: relative;
+	width: 100%;
+	height: calc(100vh - 60px);
+	margin-top: 60px;
+	// background-image: url('https://cdn.pixabay.com/photo/2019/03/03/19/54/handball-4032726_1280.jpg');
+	background-image: url('https://mosir.bochnia.pl/wp-content/uploads/2022/09/Juniorzy-mlodsi-MOSiR-Bochnia-w-Zamosciu-1718.09.2022.jpg');
+
+	background-size: cover;
+	background-position: center;
+	z-index: 0;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba($black, 0.8);
+		z-index: -1;
+	}
+
+	&__text {
+		position: absolute;
+		top: 50%;
+		width: calc(100%);
+		padding: 1.7em;
+
+		// top: 50%;
+		// display: flex;
+		// flex-direction: column;
+		// justify-content: center;
+		// align-items: center;
+		// left: -2em;
+		transform: translateY(-50%);
+		color: #fff;
+
+		.typewriter-effect {
+			font-size: 3.4rem;
+			letter-spacing: 2px;
+			margin-bottom: 0.3em;
+			font-weight: 300;
+
+			// text-align: center;
+			&::after {
+				content: ' |';
+				animation: blink 0.4s linear infinite alternate;
+			}
+		}
+
+		&-team {
+			font-size: 3.2rem;
+			margin-bottom: 1.3em;
+
+			background: linear-gradient(-45deg, #f4045c, #2353e6, #0fe5e5);
+			background-size: 300%;
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			color: transparent;
+			/* with animation */
+			animation: gradient-animation 5s ease-in-out infinite;
+		}
+
+		&-btn {
+			padding: 1em;
+			font-size: 1.6rem;
+			border: 1px solid #fff;
+			border-radius: 3px;
+			background-color: transparent;
+			color: #fff;
+			transition: background-color 0.3s, border-color 0.3s;
+
+			&:hover {
+				background-color: $red;
+				border-color: $red;
+			}
+
+			&:focus {
+				outline: none;
+				background-color: $red;
+				border-color: $red;
+			}
+		}
+	}
+}
+
