@@ -78,38 +78,38 @@ function lazyLoadingImg() {
 		lazyloadImages.forEach(function (image) {
 			imageObserver.observe(image)
 		})
-	} 	let lazyloadThrottleTimeout
-		lazyloadImages = document.querySelectorAll('.lazy')
+	}
+	let lazyloadThrottleTimeout
+	lazyloadImages = document.querySelectorAll('.lazy')
 
-		function lazyload() {
-			if (lazyloadThrottleTimeout) {
-				clearTimeout(lazyloadThrottleTimeout)
-			}
-
-			lazyloadThrottleTimeout = setTimeout(function () {
-				const scrollTop = window.scrollY
-				lazyloadImages.forEach(function (img) {
-					if (img.offsetTop < window.innerHeight + scrollTop) {
-						img.src = img.dataset.src
-						img.classList.remove('lazy')
-						img.classList.remove('hidden')
-					}
-				})
-				if (lazyloadImages.length == 0) {
-					document.removeEventListener('scroll', lazyload)
-					window.removeEventListener('resize', lazyload)
-					window.removeEventListener('orientationChange', lazyload)
-				}
-			}, 20)
+	function lazyload() {
+		if (lazyloadThrottleTimeout) {
+			clearTimeout(lazyloadThrottleTimeout)
 		}
 
-		document.addEventListener('scroll', lazyload)
-		window.addEventListener('resize', lazyload)
-		window.addEventListener('orientationChange', lazyload)
+		lazyloadThrottleTimeout = setTimeout(function () {
+			const scrollTop = window.scrollY
+			lazyloadImages.forEach(function (img) {
+				if (img.offsetTop < window.innerHeight + scrollTop) {
+					img.src = img.dataset.src
+					img.classList.remove('lazy')
+					img.classList.remove('hidden')
+				}
+			})
+			if (lazyloadImages.length == 0) {
+				document.removeEventListener('scroll', lazyload)
+				window.removeEventListener('resize', lazyload)
+				window.removeEventListener('orientationChange', lazyload)
+			}
+		}, 20)
+	}
+
+	document.addEventListener('scroll', lazyload)
+	window.addEventListener('resize', lazyload)
+	window.addEventListener('orientationChange', lazyload)
 }
 
 lazyLoadingImg()
-
 
 // const changeImg = (e) => {
 // 	const img = e.currentTarget.closest('.team__player').querySelector('.team__player-img')
@@ -131,3 +131,28 @@ lazyLoadingImg()
 // 	player.addEventListener('mouseover', changeImg)
 // 	player.addEventListener('mouseout', changeImgToDefault)
 // })
+
+document.addEventListener('DOMContentLoaded', () => {
+	const elements = document.querySelectorAll('.your-element-class') // Zastąp '.your-element-class' odpowiednim selektorem CSS
+
+	// Dodaj obsługę zdarzenia mouseleave dla każdego elementu
+})
+
+players.forEach(element => {
+	element.addEventListener('mouseleave', () => {
+		console.log('test')
+		// Sprawdź, czy myszka nadal znajduje się nad jakimkolwiek innym elementem
+		const isMouseOverAnyElement = Array.from(players).some(otherElement => otherElement.matches(':hover'))
+
+		// Jeśli myszka nie jest nad żadnym innym elementem, usuń transition z bieżącego elementu
+		if (!isMouseOverAnyElement) {
+			console.log('test2')
+			element.querySelector('.front').style.transition = '0s'
+			element.querySelector('.back').style.transition = '0s'
+			setTimeout(() => {
+				element.querySelector('.front').style.transition = '0.8s transform, 0.8s opacity'
+				element.querySelector('.back').style.transition = '0.8s transform, 0.8s opacity'
+			}, 100)
+		}
+	})
+})
