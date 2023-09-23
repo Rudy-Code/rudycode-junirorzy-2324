@@ -58,7 +58,7 @@ const appUpdate = () => {
 appUpdate()
 setInterval(setTime, 1000)
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('load', function () {
 	let lazyloadImages
 
 	if ('IntersectionObserver' in window) {
