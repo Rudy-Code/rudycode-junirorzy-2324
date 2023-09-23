@@ -58,8 +58,8 @@ const appUpdate = () => {
 appUpdate()
 setInterval(setTime, 1000)
 
-let lazyloadImages
 function test() {
+	let lazyloadImages
 
 	if ('IntersectionObserver' in window) {
 		lazyloadImages = document.querySelectorAll('.lazy')
@@ -72,8 +72,6 @@ function test() {
 					image.classList.remove('lazy')
 					image.classList.remove('hidden')
 					imageObserver.unobserve(image)
-					console.log('deleted 2');
-
 				}
 			})
 		})
@@ -83,7 +81,6 @@ function test() {
 		})
 	} 	let lazyloadThrottleTimeout
 		lazyloadImages = document.querySelectorAll('.lazy')
-		console.log(lazyloadThrottleTimeout)
 
 		function lazyload() {
 			if (lazyloadThrottleTimeout) {
@@ -97,7 +94,6 @@ function test() {
 						img.src = img.dataset.src
 						img.classList.remove('lazy')
 						img.classList.remove('hidden')
-						console.log('deleted 3');
 					}
 				})
 				if (lazyloadImages.length == 0) {
