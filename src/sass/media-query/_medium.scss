@@ -39,13 +39,25 @@
 
 	.team {
 		&__player {
-			width: 30%;
-			padding: 2em;
-            transition: scale 0.3s;
+			position: relative;
 
-            &:hover{
-                scale: 1.05;
-            }
+			width: 30%;
+			// padding: 2em;
+			transition: scale 0.3s;
+			perspective: 800px;
+
+
+			.back {
+				padding: 2em;
+			}
+	
+			.front {
+				padding: 2em;
+			}
+
+			// &:hover {
+			// 	scale: 1.05;
+			// }
 
 			&-img {
 				width: 7em;
@@ -70,13 +82,13 @@
 	}
 
 	.schedule {
-        width: 100%;
+		width: 100%;
 		padding: 1.2em;
 
-        &__container{
-            width: 100%;
-            flex-direction: row;
-        }
+		&__container {
+			width: 100%;
+			flex-direction: row;
+		}
 
 		table {
 			width: 60%;
@@ -88,28 +100,28 @@
 		}
 	}
 
-    .timer {
-        width: 40%;
-        padding: .7em;
-    
-        .timer__header {
-            font-size: 2rem;
-            padding: 1em;
-        }
-    
-        .timer__container {
-            width: 100%;
-        }
-    
-        .timer__item {
-            padding: 1em .5em;
-            width: 50%;
-            height: 50%;
-            font-size: 2rem;
-        }
-    }
+	.timer {
+		width: 40%;
+		padding: 0.7em;
 
-    .links{
-        padding: 1em;
-    }
+		.timer__header {
+			font-size: 2rem;
+			padding: 1em;
+		}
+
+		.timer__container {
+			width: 100%;
+		}
+
+		.timer__item {
+			padding: 1em 0.5em;
+			width: 50%;
+			height: 50%;
+			font-size: 2rem;
+		}
+	}
+
+	.links {
+		padding: 1em;
+	}
 }

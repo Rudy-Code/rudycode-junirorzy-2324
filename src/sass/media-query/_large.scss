@@ -40,12 +40,12 @@
 		padding: 2em;
 		&__player {
 			width: 30%;
-			padding: 2em;
+			// padding: 2em;
 			transition: scale 0.3s;
 
-			&:hover {
-				scale: 1.05;
-			}
+			// &:hover {
+			// 	scale: 1.05;
+			// }
 
 			&-img {
 				width: 10em;
@@ -125,7 +125,7 @@
 
 		&__player {
 			width: 25em;
-			padding: 2em;
+			// padding: 2em;
 			margin-bottom: 2em;
 		}
 	}
@@ -142,7 +142,7 @@
 
 		&__player {
 			width: 40rem;
-			padding: 2em;
+			// padding: 2em;
 			height: 350px;
 			margin-bottom: 2em;
 		}

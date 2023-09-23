@@ -58,14 +58,13 @@ const appUpdate = () => {
 appUpdate()
 setInterval(setTime, 1000)
 
-function test() {
+function lazyLoadingImg() {
 	let lazyloadImages
 
 	if ('IntersectionObserver' in window) {
 		lazyloadImages = document.querySelectorAll('.lazy')
 		const imageObserver = new IntersectionObserver(function (entries, observer) {
 			entries.forEach(function (entry) {
-				console.log(entry);
 				if (entry.isIntersecting) {
 					const image = entry.target
 					image.src = image.dataset.src
@@ -109,4 +108,26 @@ function test() {
 		window.addEventListener('orientationChange', lazyload)
 }
 
-test()
+lazyLoadingImg()
+
+
+// const changeImg = (e) => {
+// 	const img = e.currentTarget.closest('.team__player').querySelector('.team__player-img')
+// 	console.log(img.src);
+// 	const DEFAULT_SRC = 'https://rudycode-junirorzy-2324.netlify.app/dist/img/'
+// 	const tmp = img.src.split('https://rudycode-junirorzy-2324.netlify.app/dist/img/')[1]
+// 	console.log();
+// 	img.src = DEFAULT_SRC + tmp.split('.')[0] + '-hover.webp'
+// }
+
+// const changeImgToDefault = (e) => {
+// 	const img = e.currentTarget.closest('.team__player').querySelector('.team__player-img');
+// 	const DEFAULT_SRC = 'https://rudycode-junirorzy-2324.netlify.app/dist/img/';
+// 	const tmp = img.src.split(DEFAULT_SRC)[1];
+// 	img.src = DEFAULT_SRC + tmp.split('-hover.webp')[0] + '.webp';
+// }
+
+// players.forEach((player) => {
+// 	player.addEventListener('mouseover', changeImg)
+// 	player.addEventListener('mouseout', changeImgToDefault)
+// })
