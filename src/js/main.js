@@ -60,6 +60,7 @@ setInterval(setTime, 1000)
 
 document.addEventListener('DOMContentLoaded', function () {
 	let lazyloadImages
+	console.log('test');
 
 	if ('IntersectionObserver' in window) {
 		lazyloadImages = document.querySelectorAll('.lazy')
