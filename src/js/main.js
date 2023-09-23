@@ -59,11 +59,13 @@ appUpdate()
 setInterval(setTime, 1000)
 
 let lazyloadImages
-function test () {
-	console.log('test');
+function test() {
+	console.log('test')
 
 	if ('IntersectionObserver' in window) {
 		lazyloadImages = document.querySelectorAll('.lazy')
+		console.log(lazyloadImages)
+
 		const imageObserver = new IntersectionObserver(function (entries, observer) {
 			entries.forEach(function (entry) {
 				if (entry.isIntersecting) {
@@ -82,6 +84,7 @@ function test () {
 	} else {
 		let lazyloadThrottleTimeout
 		lazyloadImages = document.querySelectorAll('.lazy')
+		console.log(lazyloadThrottleTimeout)
 
 		function lazyload() {
 			if (lazyloadThrottleTimeout) {
