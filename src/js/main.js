@@ -58,7 +58,7 @@ const appUpdate = () => {
 appUpdate()
 setInterval(setTime, 1000)
 
-document.addEventListener('DOMContentLoaded', function () {
+function test () {
 	let lazyloadImages
 	console.log('test');
 
@@ -109,4 +109,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		window.addEventListener('resize', lazyload)
 		window.addEventListener('orientationChange', lazyload)
 	}
-})
+}
+
+test()
