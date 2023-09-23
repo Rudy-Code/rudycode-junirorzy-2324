@@ -5,12 +5,14 @@
 	text-align: center;
 	// background-color: $bg-gray;
 
-	&__container{
+	&__container {
 		display: flex;
 		flex-direction: column;
 	}
 
-
+	table {
+		text-align: center;
+	}
 	tr {
 		width: 100%;
 		&:nth-child(odd) {
@@ -39,7 +41,7 @@
 	align-items: center;
 	flex-direction: column;
 	margin-bottom: 1em;
-	padding: .05em;
+	padding: 0.05em;
 
 	.timer__header {
 		font-size: 2rem;
