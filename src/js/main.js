@@ -58,8 +58,8 @@ const appUpdate = () => {
 appUpdate()
 setInterval(setTime, 1000)
 
+let lazyloadImages
 function test () {
-	let lazyloadImages
 	console.log('test');
 
 	if ('IntersectionObserver' in window) {
