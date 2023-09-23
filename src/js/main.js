@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					const image = entry.target
 					image.src = image.dataset.src
 					image.classList.remove('lazy')
+					image.classList.remove('hidden')
 					imageObserver.unobserve(image)
 				}
 			})
@@ -92,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					if (img.offsetTop < window.innerHeight + scrollTop) {
 						img.src = img.dataset.src
 						img.classList.remove('lazy')
+						img.classList.remove('hidden')
 					}
 				})
 				if (lazyloadImages.length == 0) {
