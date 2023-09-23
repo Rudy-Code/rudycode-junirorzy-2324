@@ -68,8 +68,9 @@ function test() {
 
 		const imageObserver = new IntersectionObserver(function (entries, observer) {
 			entries.forEach(function (entry) {
-				console.log('test2');
+				console.log(entry);
 				if (entry.isIntersecting) {
+					console.log('test2');
 					const image = entry.target
 					image.src = image.dataset.src
 					image.classList.remove('lazy')
