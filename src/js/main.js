@@ -60,22 +60,20 @@ setInterval(setTime, 1000)
 
 let lazyloadImages
 function test() {
-	console.log('test')
 
 	if ('IntersectionObserver' in window) {
 		lazyloadImages = document.querySelectorAll('.lazy')
-		console.log(lazyloadImages)
-
 		const imageObserver = new IntersectionObserver(function (entries, observer) {
 			entries.forEach(function (entry) {
 				console.log(entry);
 				if (entry.isIntersecting) {
-					console.log('test2');
 					const image = entry.target
 					image.src = image.dataset.src
 					image.classList.remove('lazy')
 					image.classList.remove('hidden')
 					imageObserver.unobserve(image)
+					console.log('deleted 2');
+
 				}
 			})
 		})
@@ -95,12 +93,11 @@ function test() {
 			lazyloadThrottleTimeout = setTimeout(function () {
 				const scrollTop = window.scrollY
 				lazyloadImages.forEach(function (img) {
-				console.log('test3');
-
 					if (img.offsetTop < window.innerHeight + scrollTop) {
 						img.src = img.dataset.src
 						img.classList.remove('lazy')
 						img.classList.remove('hidden')
+						console.log('deleted 3');
 					}
 				})
 				if (lazyloadImages.length == 0) {
