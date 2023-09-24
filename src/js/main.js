@@ -132,27 +132,76 @@ lazyLoadingImg()
 // 	player.addEventListener('mouseout', changeImgToDefault)
 // })
 
-document.addEventListener('DOMContentLoaded', () => {
-	const elements = document.querySelectorAll('.your-element-class') // Zastąp '.your-element-class' odpowiednim selektorem CSS
+// players.forEach(element => {
+// 	element.addEventListener('mouseover', () => {
+// 		element.querySelector('.front').style.transition = '0.8s transform, 0.8s opacity'
+// 		element.querySelector('.back').style.transition = '0.8s transform, 0.8s opacity'
+// 	})
+// 	element.addEventListener('mouseleave', () => {
+// 		const isMouseOverAnyElement = Array.from(players).some(otherElement => otherElement.matches(':hover'))
 
-	// Dodaj obsługę zdarzenia mouseleave dla każdego elementu
+// 		if (!isMouseOverAnyElement) {
+// 			console.log('test2')
+// 			element.querySelector('.front').style.transition = '0s'
+// 			element.querySelector('.back').style.transition = '0s'
+// 			setTimeout(() => {
+// 				element.querySelector('.front').style.transition = '0.8s transform, 0.8s opacity'
+// 				element.querySelector('.back').style.transition = '0.8s transform, 0.8s opacity'
+// 			}, 1000)
+// 		}
+// 	})
+// })
+
+//
+
+// .back {
+// 	position: absolute;
+// 	inset: 0;
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	flex-direction: column;
+// 	opacity: 0;
+// 	transform: rotateY(-180deg);
+// 	transition: 0.8s transform, 0.8s opacity;
+// 	background-color: rgba($black, 0.9);
+
+// 	width: 100%;
+// 	height: 100%;
+// 	padding: 1em;
+// }
+
+// .front {
+// 	transition: 0.8s transform, 0.8s opacity;
+// 	background-color: rgba($black, 0.9);
+
+// 	width: 100%;
+// 	height: 100%;
+// 	padding: 1em;
+// }
+
+players.forEach(el => {
+	el.querySelector('.back').style.transform = 'rotateY(-180deg)'
+	el.querySelector('.front').style.opacity = '1'
 })
 
-players.forEach(element => {
-	element.addEventListener('mouseleave', () => {
-		console.log('test')
-		// Sprawdź, czy myszka nadal znajduje się nad jakimkolwiek innym elementem
-		const isMouseOverAnyElement = Array.from(players).some(otherElement => otherElement.matches(':hover'))
-
-		// Jeśli myszka nie jest nad żadnym innym elementem, usuń transition z bieżącego elementu
-		if (!isMouseOverAnyElement) {
-			console.log('test2')
-			element.querySelector('.front').style.transition = '0s'
-			element.querySelector('.back').style.transition = '0s'
-			setTimeout(() => {
-				element.querySelector('.front').style.transition = '0.8s transform, 0.8s opacity'
-				element.querySelector('.back').style.transition = '0.8s transform, 0.8s opacity'
-			}, 100)
-		}
+players.forEach(player => {
+	player.addEventListener('mouseenter', () => {
+		player.querySelector('.front').style.transition = 'none'
+		player.querySelector('.back').style.transition = 'none'
+		setTimeout(() => {
+			player.querySelector('.front').style.transition = '0.8s transform, 0.8s opacity'
+			player.querySelector('.back').style.transition = '0.8s transform, 0.8s opacity'
+			player.querySelector('.front').style.transform = 'rotateY(180deg)'
+			player.querySelector('.front').style.opacity = '0'
+			player.querySelector('.back').style.transform = 'rotateY(0deg)'
+			player.querySelector('.back').style.opacity = '1'
+		}, 200)
+	})
+	player.addEventListener('mouseleave', () => {
+		player.querySelector('.front').style.transform = 'rotateY(0deg)'
+		player.querySelector('.front').style.opacity = '1'
+		player.querySelector('.back').style.transform = 'rotateY(-180deg)'
+		player.querySelector('.back').style.opacity = '0'
 	})
 })
