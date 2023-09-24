@@ -68,7 +68,7 @@
 			flex-direction: column;
 			opacity: 0;
 			// transform: rotateY(-180deg);
-			transition: 0.8s transform, 0.8s opacity;
+			transition: 0.7s transform, 0.7s opacity;
 			background-color: rgba($black, 0.9);
 
 			width: 100%;
@@ -77,7 +77,7 @@
 		}
 
 		.front {
-			transition: 0.8s transform, 0.8s opacity;
+			transition: 0.7s transform, 0.7s opacity;
 			background-color: rgba($black, 0.9);
 			opacity: 1;
 			width: 100%;

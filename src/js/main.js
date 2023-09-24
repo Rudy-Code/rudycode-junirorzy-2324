@@ -19,7 +19,6 @@ const secondsCount = document.querySelector('#seconds')
 const matchNow = document.querySelector('.match-now')
 const timerItem = document.querySelectorAll('.timer__item')
 
-
 let userTime
 
 const setTime = () => {
@@ -49,7 +48,7 @@ const appUpdate = () => {
 				el.style.display = 'none'
 			})
 			matchNow.style.display = 'block'
-			console.log('match now');
+			console.log('match now')
 			break
 		}
 
@@ -129,11 +128,13 @@ players.forEach(el => {
 
 players.forEach(player => {
 	player.addEventListener('mouseenter', () => {
-		player.querySelector('.front').style.transition = 'none'
-		player.querySelector('.back').style.transition = 'none'
 		setTimeout(() => {
-			player.querySelector('.front').style.transition = '0.8s transform, 0.8s opacity'
-			player.querySelector('.back').style.transition = '0.8s transform, 0.8s opacity'
+			players.forEach(el => {
+				el.querySelector('.front').style.transform = 'rotateY(0deg)'
+				el.querySelector('.front').style.opacity = '1'
+				el.querySelector('.back').style.transform = 'rotateY(-180deg)'
+				el.querySelector('.back').style.opacity = '0'
+			})
 			player.querySelector('.front').style.transform = 'rotateY(180deg)'
 			player.querySelector('.front').style.opacity = '0'
 			player.querySelector('.back').style.transform = 'rotateY(0deg)'
