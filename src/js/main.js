@@ -16,6 +16,10 @@ const hoursCount = document.querySelector('#hours')
 const minutesCount = document.querySelector('#minutes')
 const secondsCount = document.querySelector('#seconds')
 
+const matchNow = document.querySelector('.match-now')
+const timerItem = document.querySelectorAll('.timer__item')
+
+
 let userTime
 
 const setTime = () => {
@@ -39,24 +43,31 @@ const appUpdate = () => {
 		const el = matchesData[index]
 		const currentTime = new Date()
 		const time = new Date(el) - currentTime
-		console.log(time, index)
 
 		if (time <= 0 && time >= -3600000) {
-			console.error('mecz trwa')
+			timerItem.forEach(el => {
+				el.style.display = 'none'
+			})
+			matchNow.style.display = 'block'
+			console.log('match now');
+			break
 		}
 
 		if (time > 0) {
 			indexTime = index
+			timerItem.forEach(el => {
+				el.style.display = 'flex'
+			})
+			matchNow.style.display = 'none'
 			break
 		}
 	}
 	userTime = new Date(matchesData[indexTime])
-	console.log(userTime)
 	setTime()
 }
 
 appUpdate()
-setInterval(setTime, 1000)
+setInterval(appUpdate, 1000)
 
 function lazyLoadingImg() {
 	let lazyloadImages
@@ -110,75 +121,6 @@ function lazyLoadingImg() {
 }
 
 lazyLoadingImg()
-
-// const changeImg = (e) => {
-// 	const img = e.currentTarget.closest('.team__player').querySelector('.team__player-img')
-// 	console.log(img.src);
-// 	const DEFAULT_SRC = 'https://rudycode-junirorzy-2324.netlify.app/dist/img/'
-// 	const tmp = img.src.split('https://rudycode-junirorzy-2324.netlify.app/dist/img/')[1]
-// 	console.log();
-// 	img.src = DEFAULT_SRC + tmp.split('.')[0] + '-hover.webp'
-// }
-
-// const changeImgToDefault = (e) => {
-// 	const img = e.currentTarget.closest('.team__player').querySelector('.team__player-img');
-// 	const DEFAULT_SRC = 'https://rudycode-junirorzy-2324.netlify.app/dist/img/';
-// 	const tmp = img.src.split(DEFAULT_SRC)[1];
-// 	img.src = DEFAULT_SRC + tmp.split('-hover.webp')[0] + '.webp';
-// }
-
-// players.forEach((player) => {
-// 	player.addEventListener('mouseover', changeImg)
-// 	player.addEventListener('mouseout', changeImgToDefault)
-// })
-
-// players.forEach(element => {
-// 	element.addEventListener('mouseover', () => {
-// 		element.querySelector('.front').style.transition = '0.8s transform, 0.8s opacity'
-// 		element.querySelector('.back').style.transition = '0.8s transform, 0.8s opacity'
-// 	})
-// 	element.addEventListener('mouseleave', () => {
-// 		const isMouseOverAnyElement = Array.from(players).some(otherElement => otherElement.matches(':hover'))
-
-// 		if (!isMouseOverAnyElement) {
-// 			console.log('test2')
-// 			element.querySelector('.front').style.transition = '0s'
-// 			element.querySelector('.back').style.transition = '0s'
-// 			setTimeout(() => {
-// 				element.querySelector('.front').style.transition = '0.8s transform, 0.8s opacity'
-// 				element.querySelector('.back').style.transition = '0.8s transform, 0.8s opacity'
-// 			}, 1000)
-// 		}
-// 	})
-// })
-
-//
-
-// .back {
-// 	position: absolute;
-// 	inset: 0;
-// 	display: flex;
-// 	justify-content: center;
-// 	align-items: center;
-// 	flex-direction: column;
-// 	opacity: 0;
-// 	transform: rotateY(-180deg);
-// 	transition: 0.8s transform, 0.8s opacity;
-// 	background-color: rgba($black, 0.9);
-
-// 	width: 100%;
-// 	height: 100%;
-// 	padding: 1em;
-// }
-
-// .front {
-// 	transition: 0.8s transform, 0.8s opacity;
-// 	background-color: rgba($black, 0.9);
-
-// 	width: 100%;
-// 	height: 100%;
-// 	padding: 1em;
-// }
 
 players.forEach(el => {
 	el.querySelector('.back').style.transform = 'rotateY(-180deg)'
