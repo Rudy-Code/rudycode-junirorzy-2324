@@ -42,7 +42,7 @@
 		&-img {
 			width: 5em;
 			height: 100%;
-			height: 95px;
+			height: 95px !important;
 			object-fit: cover;
 			margin-bottom: 1em;
 		}
@@ -50,7 +50,7 @@
 			font-size: 1.4rem;
 			margin-bottom: 0.5em;
 			&--small {
-				font-size: 1.35rem;
+				font-size: 1.33rem;
 				margin-bottom: 0.5em;
 			}
 		}
@@ -58,18 +58,6 @@
 			font-size: 1.3rem;
 			font-weight: 300;
 		}
-
-		// hover style
-
-
-		// &:hover .front {
-		// 	opacity: 0;
-		// 	transform: rotateY(-180deg);
-		// }
-		// &:hover .back {
-		// 	opacity: 1;
-		// 	transform: rotateY(0deg);
-		// }
 
 		.back {
 			position: absolute;
