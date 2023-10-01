@@ -1,5 +1,4 @@
 const matchesData = [
-	'09.22.2023 18:00:00',
 	'10.01.2023 19:00:00',
 	'10.08.2023 15:30:00',
 	'10.15.2023 0:00:00',
@@ -19,6 +18,11 @@ const secondsCount = document.querySelector('#seconds')
 const matchNow = document.querySelector('.match-now')
 const timerItem = document.querySelectorAll('.timer__item')
 
+const daysText = document.querySelector('.timer__item-text--days')
+const hoursText = document.querySelector('.timer__item-text--hours')
+const minutesText = document.querySelector('.timer__item-text--minutes')
+const secondsText = document.querySelector('.timer__item-text--seconds')
+
 let userTime
 
 const setTime = () => {
@@ -31,9 +35,36 @@ const setTime = () => {
 	const seconds = Math.floor(result / 1000) % 60
 
 	daysCount.textContent = days
+	days == 1 ? (daysText.textContent = 'dzień') : (daysText.textContent = 'dni')
 	hoursCount.textContent = hours
+
+	if (hours == 1) {
+		hoursText.textContent = 'godzina'
+	} else if (hours > 1 && hours < 5) {
+		hoursText.textContent = 'godziny'
+	} else {
+		hoursText.textContent = 'godzin'
+	}
+
 	minutesCount.textContent = minutes
+
+	if (minutes == 1) {
+		minutesText.textContent = 'minuta'
+	} else if (minutes > 1 && minutes < 5) {
+		minutesText.textContent = 'minuty'
+	} else {
+		minutesText.textContent = 'minut'
+	}
+
 	secondsCount.textContent = seconds
+
+	if (seconds == 1) {
+		secondsText.textContent = 'sekunda'
+	} else if (seconds > 1 && seconds < 5) {
+		secondsText.textContent = 'sekundy'
+	} else {
+		secondsText.textContent = 'sekund'
+	}
 }
 
 const appUpdate = () => {
