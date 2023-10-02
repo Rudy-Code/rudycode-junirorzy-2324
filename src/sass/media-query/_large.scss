@@ -1,7 +1,6 @@
 @use 'abstracts/colors' as *;
 @media (min-width: 992px) {
 	.hero {
-		background-position: inherit;
 		&__text {
 			position: absolute;
 			top: 50%;
@@ -133,6 +132,9 @@
 }
 
 @media (min-width: 1400px) {
+	.hero {
+		background-position: inherit;
+	}
 	.team {
 		padding: 2em 15em;
 
