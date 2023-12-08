@@ -6,6 +6,7 @@ const matchesData = [
 	'11.26.2023 0:00:00',
 	'12.03.2023 0:00:00',
 	'11.19.2023 0:00:00',
+	'12.16.2023 19:00:00'
 ]
 
 const players = document.querySelectorAll('.team__player')
