@@ -93,13 +93,28 @@ const appUpdate = () => {
 			matchNow.style.display = 'none'
 			break
 		}
+		if (time <= 0 && time > -3600000) {
+			timerItem.forEach(el => {
+				el.style.display = 'none'
+			})
+			matchNow.style.display = 'block'
+			matchNow.textContent = 'Koniec sezonu'
+			break
+		}
 	}
 	userTime = new Date(matchesData[indexTime])
 	setTime()
 }
 
-appUpdate()
-setInterval(appUpdate, 1000)
+timerItem.forEach(el => {
+	el.style.display = 'none'
+})
+matchNow.style.display = 'block'
+matchNow.textContent = 'Koniec sezonu'
+
+
+// appUpdate()
+// setInterval(appUpdate, 1000)
 
 function lazyLoadingImg() {
 	let lazyloadImages
